@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="de">
+
+  <head>
+    <title>QR-Code-Erzeuger</title>
+
+    <meta charset="utf-8">
+
+    <link href="https://search.uni-bielefeld.de/cgi-bin/search.cgi" rel="search" type="text/html">
+    <link href="https://www.uni-bielefeld.de/help.html" rel="help" type="text/html">
+    <link href="https://www.uni-bielefeld.de/impressum.html" rel="license" type="text/html">
+    <link href="http://www.math.uni-bielefeld.de/sites/all/themes/mathematik/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="https://www.math.uni-bielefeld.de/birep/style/corporate.css" rel="stylesheet" type="text/css">
+    <link href="https://www.math.uni-bielefeld.de/birep/style/base.css" rel="stylesheet" type="text/css">
+
+    <link href="./lib/jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="./styles.css" rel="stylesheet" type="text/css">
+
+    <style>
+      body {
+        overflow: scroll;
+      }
+
+      #kopf {
+        background: #f8d42a;
+      }
+
+      #suche {
+        left: 755px;
+        width: 222px;
+      }
+
+      #fussmenu {
+        text-align: center;
+      }
+
+      .Button {
+        border: 1px solid #f8d42a;
+      }
+
+      ul.menu-left li, h1, h2, h3, #fussstrich {
+        border-bottom-color: #f8d42a;
+      }
+
+      h1 {
+        padding-top: 5px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="logo">
+      <a href="https://www.uni-bielefeld.de/"><img alt="grünes Logo der Universität Bielefeld" height="72" src="https://www.math.uni-bielefeld.de/sites/all/themes/mathematik/images/logo.jpg" width="185"></a>
+    </div>
+
+    <div id="titel">
+      BIREP &mdash; Darstellungstheorie endlichdimensionaler Algebren
+    </div>
+
+    <div id="kopf"></div>
+
+    <div id="Kopfbild1">
+      <a href="/birep/headerinfo.php"><img alt="BIREP header picture 1" src="https://www.math.uni-bielefeld.de/birep/style/large/university.jpg" title="Bielefeld University, original picture by Drahreg01, used under CC BY-SA 3.0 licence"></a>
+    </div>
+
+    <div id="Kopfbild2"><img alt="BIREP header picture 2" src="https://www.math.uni-bielefeld.de/birep/style/small/0002.png"></div>
+
+    <div id="pulldown">
+      <ul class="pulldown">
+        <li>
+          <a href="https://www.math.uni-bielefeld.de/~jgeuenich/">Jan Geuenich</a>
+        </li>
+        <li>
+          <a href="https://www.math.uni-bielefeld.de/birep/index.php">BIREP</a>
+        </li>
+        <li>
+          <a href="https://www.math.uni-bielefeld.de/">Mathematik</a>
+        </li>
+        <li>
+          <a href="https://www.uni-bielefeld.de">Universität Bielefeld</a>
+        </li>
+      </ul>
+    </div>
+
+    <div id="suche">
+      <form accept-charset="ISO-8859-1, ISO-8859-2, UTF-8" action="http://search.uni-bielefeld.de/index.php" method="get">
+        <div>
+          <input class="Feld" name="q[0][c]" size="10" type="text" value=""> <input name="q[0][d]" type="hidden" value="all"> <input name="q[1][c]" type="hidden" value="www.math.uni-bielefeld.de"> <input name="q[1][d]" type="hidden" value="url"> &nbsp;<input class="Button" type="submit" value="Suchen">
+        </div>
+      </form>
+    </div>
+
+    <div id="menubereich">
+      <div id="menulinks">
+        <h2>Navigation</h2>
+        <ul class="menu-left">
+          <li>
+            Wintersemester 2017/18
+          </li>
+          <li class="submenu">
+            <ul>
+              <li>
+                <a href="https://www.math.uni-bielefeld.de/~jgeuenich/WS17-18/Algebra1/">Algebra I</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="contentbereich">
+
+      <h2>QR-Code-Erzeuger</h2>
+
+      <div id="options">
+        <form action="#">
+          <div id="message-container" class="ui-corner-all ui-widget ui-widget-content">
+            <textarea id="message" tabindex="1" autocomplete="off" spellcheck="false"></textarea>
+          </div>
+
+          <fieldset>
+            <label for="version">Mindestgröße</label>
+            <select name="version" id="version">
+              <option selected>21</option>
+            </select>
+
+            <label for="error-correction">Fehlerkorrekturlevel</label>
+            <select name="error-correction" id="error-correction">
+              <option>L</option>
+              <option>M</option>
+              <option selected>Q</option>
+              <option>H</option>
+            </select>
+
+            <label for="mask">Maskierung</label>
+            <select name="mask" id="mask">
+              <option>0</option>
+              <option>1</option>
+              <option>2</option>
+              <option selected>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+            </select>
+          </fieldset>
+
+        </form>
+      </div>
+
+      <div id="output">
+        <div>
+          <canvas id="qr-code" width="300" height="300"></canvas>
+        </div>
+
+        <button id="save-as-svg">
+          Als SVG speichern
+          <span class="ui-icon ui-icon-arrowthickstop-1-s"></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="fussstrich"></div>
+
+    <div id="fussmenu">
+      <ul class="menu-foot">
+        <li>© 2017 Universität Bielefeld</li>
+        <li>
+          <a href="http://www.uni-bielefeld.de/(de)/Universitaet/Serviceangebot/Kontakt/index.html">Kontakt</a>
+        </li>
+        <li>
+          <a href="http://www.uni-bielefeld.de/(de)/Universitaet/impressum.html">Impressum</a>
+        </li>
+      </ul>
+    </div>
+
+    <script src="bundle.js"></script>
+  </body>
+
+</html>

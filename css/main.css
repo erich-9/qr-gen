@@ -1,0 +1,67 @@
+body {
+  font-size: 14px;
+}
+
+#contentbereich {
+  display: block;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+#options {
+  float: left;
+  margin-left: 45px;
+  margin-top: 10px;
+}
+
+#options fieldset {
+  border: 0;
+}
+
+#options label {
+  display: block;
+  margin: 10px 0 0 0;
+}
+
+#message-container {
+  display: flex;
+  margin: 0 20px;
+  margin-top: 20px;
+}
+
+#message {
+  background-color: transparent;
+  border-style: none;
+  flex: 1;
+  height: 70px;
+  margin-top: 0;
+  padding: 10px;
+  resize: none;
+}
+
+#output {
+  display: inline-block;
+  margin-top: 20px;
+}
+
+#output button {
+  margin: 20px;
+}
+
+.overflow {
+  height: 200px;
+}
+
+.ui-button {
+  font-family: sans-serif;
+}
+
+.ui-selectmenu-text {
+  text-align: center;
+}
+
+.ui-widget-content {
+  background-color: #fdfdfd;
+  font-family: sans-serif;
+  text-align: center;
+}

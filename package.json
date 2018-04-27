@@ -1,0 +1,37 @@
+{
+  "name": "qr-gen",
+  "version": "0.0.1",
+  "main": "index.js",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "jquery": "^3.2.1",
+    "jquery-ui": "^1.12.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.22.1",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "css-loader": "^0.28.11",
+    "eslint": "^4.19.1",
+    "eslint-loader": "^2.0.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.11",
+    "file-saver": "^1.3.3",
+    "postcss-loader": "^2.1.4",
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.2"
+  },
+  "scripts": {
+    "build": "npm run copy-lib && ./node_modules/webpack/bin/webpack.js",
+    "debug": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --content-base ./",
+    "copy-lib": "rsync -a lib/ dist/lib/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "QR-Code Generator",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/erich-9/qr-gen.git"
+  }
+}
